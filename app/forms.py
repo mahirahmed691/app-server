@@ -10,3 +10,8 @@ class PostForm(FlaskForm):
 class DeleteForm(FlaskForm):
     id = IntegerField('ID', validators=[DataRequired()])
     submit = SubmitField('Delete')
+
+class UpdateForm(FlaskForm):
+    id = IntegerField('ID', validators=[DataRequired()])
+    post = StringField('Post', validators=[DataRequired()])
+    submit = SubmitField('Update')

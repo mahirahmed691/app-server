@@ -8,10 +8,11 @@
     </head>
     <body>
        <div>
-        Microblog:
+        QA Forum:
         <a href="{{ url_for('index') }}">Home</a>
         <a href="{{ url_for('forum') }}">Forum</a>
 	<a href="{{ url_for('delete') }}">Delete</a>
+	<a href="{{ url_for('update') }}">Update</a>
     </div> 
         <hr>
         {% with messages = get_flashed_messages() %}
