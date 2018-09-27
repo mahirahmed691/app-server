@@ -1,29 +1,51 @@
 <html>
+
+<style>
+ body{
+ background-color:# !important;   
+}
+
+.footer {
+ 
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #333;
+   color: white;
+   text-align: center;
+   padding: 10px;
+}
+</style>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         {% if title %}
         <title>{{ title }} - microblog</title>
         {% else %}
         <title>QA FORUM</title>
         {% endif %}
     </head>
-    <body>
-       <div>
-        QA Forum:
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('forum') }}">Forum</a>
-	<a href="{{ url_for('delete') }}">Delete</a>
-	<a href="{{ url_for('update') }}">Update</a>
-    </div> 
-        <hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+ 	<body>
+		<nav class="navbar navbar-light bg-light">
+  			<a class="navbar-brand" href="{{ url_for('index') }}">
+ 			 QA
+		<div >
+  			<a class="m1 p3" href="{{ url_for('index') }}">Home</a>
+  			<a href="{{ url_for('forum') }}">Forum</a>
+  			<a href="{{ url_for('delete') }}">Delete</a>
+  			<a href="{{ url_for('update') }}">Update</a>
+		</div>
+		</nav>
         {% block content %}{% endblock %}
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     </body>
+<div class="footer bg-dark">
+  <h4 style="color:#a2f9bf">Terror-Form</h4>
+</div>
 </html>

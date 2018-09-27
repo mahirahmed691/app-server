@@ -1,25 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Welcome to the QA forum!</h1>
-    <h1>Submit a post!</h1>
+  <div style="border-radius:0px" class="jumbotron text-center bg-dark text-white ">
+    <h1>Welcome to the QA forum</h1>
+    <p>Submit a post</>
+  </div>
     <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
+        <div class="form-group container bg-dark p-4" style="margin-bottom:100px !important;">
+			{{ form.hidden_tag() }}
         <p>
-            {{ form.name.label }}<br>
-            {{ form.name(size=32) }}<br>
-            {% for error in form.name.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+		<div class="input-group mb-3 mr-sm-2">
+          <div class="input-group-prepend">
+      		<div class="input-group-text"><i class="fas fa-at"></i></div>
+   		 </div>
+          <input class="form-control" {{ form.name() }} </input><br>
+       </div>        
+ 	   {% for error in form.name.errors %}
+            <span style="color: red;">*{{ error }}</span>
+            {% endfor %}<br>
         </p>
-        <p>
-            {{ form.post.label }}<br>
-            {{ form.post(size=32) }}<br>
-            {% for error in form.post.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
+         <div class="input-group mb-3 mr-sm-2">
+           <div class="input-group-prepend">
+             <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i> </div>
+           </div>
+         <textarea style="resize:none;" rows="8" class="form-control" {{ form.post() }}</textarea><br>
+ 		</div>           
+ 			{% for error in form.post.errors %}
+            <span style="color: red;">*{{ error }}</span>
+            {% endfor %} <br><br>
+        
+        {{ form.submit() }}
+	</div>
     </form>
 
 {% endblock %}
