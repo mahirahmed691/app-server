@@ -5,9 +5,9 @@ from app.forms import PostForm, DeleteForm, UpdateForm
 import pymysql
 from datetime import datetime
 
-IP = '35.197.193.248'
+IP = '35.197.215.110'
 U = 'root'
-P = ''
+P = 'password'
 dbname = "Bucketlist"
 db = pymysql.connect(IP,U,P,dbname)
 c = db.cursor()
@@ -40,11 +40,7 @@ def forum():
     s = s + "</tr>" 
     p = s + "</body></html>"
     return p 
-#    p = "<html><body>" + s + "</body></html>"
-#    return p
      
-    return render_template('forum.html', title='Forum', posts=p)
-
 @app.route('/delete', methods=['GET','POST'])
 def delete():
     form = DeleteForm()
